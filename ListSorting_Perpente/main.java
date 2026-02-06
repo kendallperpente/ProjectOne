@@ -15,7 +15,7 @@ public class main {
         reverse_order();
 
         System.out.println("\nOrder by names");
-        employee_order();    
+        emplyee_order();    
 
     }
 
@@ -39,7 +39,7 @@ public static void emplyee_order(){
     System.out.println("After sorting: " + listEmployees);
 }
  
- public static void reverse_order(){
+    public static void reverse_order(){
         List<Integer> listIntegers = Arrays.asList(1, 6, 9, 3, 2, 0, 8, 4, 7, 5);
         System.out.println("Before sorting: " + listIntegers);
         Collections.sort(listIntegers);
@@ -49,56 +49,46 @@ public static void emplyee_order(){
     }
 
 
-}
-
-
-public class Employee {
-    private String name;
-    private int age;
-    private int salary;
- 
-    public Employee(String name, int age, int salary) {
-        this.name = name;
-        this.age = age;
-        this.salary = salary;
+    public static class Employee implements Comparable<Employee> {
+        private String name;
+        private int age;
+        private int salary;
+     
+        public Employee(String name, int age, int salary) {
+            this.name = name;
+            this.age = age;
+            this.salary = salary;
+        }
+     
+        // getters and setters
+        public String getName() {
+            return name;
+        }
+        
+        public int getAge() {
+            return age;
+        }
+        
+        public int getSalary() {
+            return salary;
+        }
+        
+        @Override
+        public String toString() {
+            return String.format("(%s, %d, %d)", name, age, salary);
+        }
+        
+        @Override
+        public int compareTo(Employee other) {
+            return this.name.compareTo(other.name);
+        }
     }
- 
-    // getters and setters
-}
 
-@Override
-public String toString() {
-    return String.format("(%s, %d, %d)", name, age, salary);
-}
-
-
-//Listing a comparator
-package net.codejava.collections;
- 
-import java.util.Comparator;
- 
-/**
- * This comparator compares two employees by their ages.
- * @author www.codejava.net
- *
- */
-public class EmployeeAgeComparator implements Comparator<Employee> {
- 
-    @Override
-    public int compare(Employee emp1, Employee emp2) {
-        return emp1.getAge() - emp2.getAge();
+    public static class EmployeeAgeComparator implements Comparator<Employee> {
+     
+        @Override
+        public int compare(Employee emp1, Employee emp2) {
+            return emp1.getAge() - emp2.getAge();
+        }
     }
 }
-
-List<Employee> listEmployees = new ArrayList<Employee>();
- 
-listEmployees.add(new Employee("Tom", 45, 80000));
-listEmployees.add(new Employee("Sam", 56, 75000));
-listEmployees.add(new Employee("Alex", 30, 120000));
-listEmployees.add(new Employee("Peter", 25, 60000));
- 
-System.out.println("Before sorting: " + listEmployees);
- 
-Collections.sort(listEmployees, new EmployeeAgeComparator());
- 
-System.out.println("After sorting: " + listEmployees);
