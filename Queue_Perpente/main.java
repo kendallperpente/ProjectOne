@@ -26,27 +26,22 @@ import java.util.*;
 public class main {
     public static void main(String[] args) {
         
-        // ===== Task 1: FIFO Queue using ArrayDeque =====
         System.out.println("===== Task 1: FIFO Queue with ArrayDeque =====\n");
         
-        // Creating a Queue using LinkedList
         List<String> listNames = Arrays.asList("Alice", "Bob", "Cole", "Dale", "Eric", "Frank");
         Queue<String> queueNames = new LinkedList<>(listNames);
         System.out.println("Queue initialized with names: " + queueNames);
         
-        // Queue operations
         Queue<String> queueCustomers = new LinkedList<>();
         queueCustomers.add("Mary");
         queueCustomers.add("John");
         queueCustomers.add("Sarah");
         System.out.println("Queue after adding: " + queueCustomers);
         
-        // Remove from queue (FIFO - First In First Out)
         String next = queueCustomers.poll();
         System.out.println("Customer removed: " + next);
         System.out.println("Queue after removal: " + queueCustomers);
         
-        // Using offer() and poll() methods
         Queue<String> queueNames2 = new LinkedList<>();
         System.out.println("\nUsing offer() method:");
         queueNames2.offer("Jack");
@@ -56,9 +51,8 @@ public class main {
         System.out.println("Next: " + queueNames2.poll());
         System.out.println("Next: " + queueNames2.poll());
         System.out.println("Next: " + queueNames2.poll());
-        System.out.println("Next: " + queueNames2.poll()); // returns null
+        System.out.println("Next: " + queueNames2.poll()); 
         
-        // ArrayDeque as a FIFO Queue
         System.out.println("\nUsing ArrayDeque as FIFO Queue:");
         Deque<String> arrayDequeQueue = new ArrayDeque<>();
         arrayDequeQueue.offer("Katherine");
@@ -70,7 +64,6 @@ public class main {
         System.out.println("Remove last: " + arrayDequeQueue.pollLast());
         System.out.println("ArrayDeque after removals: " + arrayDequeQueue);
         
-        // Peek operations
         System.out.println("\nPeek operations:");
         Deque<Integer> queueNumbers = new ArrayDeque<>();
         queueNumbers.add(10);
@@ -80,7 +73,6 @@ public class main {
         System.out.println("First: " + queueNumbers.getFirst());
         System.out.println("Last: " + queueNumbers.peekLast());
         
-        // Iterate over queue
         System.out.println("\nIterating over Queue:");
         Queue<String> queueNames3 = new LinkedList<>();
         queueNames3.add("Dale");
@@ -95,50 +87,39 @@ public class main {
             System.out.println(name);
         }
         
-        // ===== Task 2: PriorityQueue Examples =====
         System.out.println("\n\n===== Task 2a: PriorityQueue with Min-Heap (Default) =====\n");
         
-        // Create a priority queue of integers (min-heap by default)
         PriorityQueue<Integer> minHeapQueue = new PriorityQueue<>();
         
-        // Add 9 numbers to the priority queue
         int[] numbers = {42, 15, 23, 87, 5, 34, 12, 99, 56};
         for (int num : numbers) {
             minHeapQueue.offer(num);
         }
         
-        // Display all elements in the priority queue (binary heap structure)
         System.out.println("All elements in Priority Queue (binary heap structure - not sorted):");
         System.out.println(minHeapQueue);
         
         System.out.println("\nRemoving elements from min-heap Priority Queue (smallest to largest):");
-        // Remove all elements one by one
         while (!minHeapQueue.isEmpty()) {
             System.out.println("Removed: " + minHeapQueue.poll());
         }
         
-        // ===== Task 2b: PriorityQueue with Max-Heap (Custom Comparator) =====
         System.out.println("\n\n===== Task 2b: PriorityQueue with Max-Heap (Reverse Order) =====\n");
         
-        // Create a priority queue with custom comparator for max-heap
         PriorityQueue<Integer> maxHeapQueue = new PriorityQueue<>(Collections.reverseOrder());
         
-        // Add the same 9 numbers
         for (int num : numbers) {
             maxHeapQueue.offer(num);
         }
         
-        // Display all elements in the max-heap priority queue
         System.out.println("All elements in Max-Heap Priority Queue (binary heap structure - not sorted):");
         System.out.println(maxHeapQueue);
         
         System.out.println("\nRemoving elements from max-heap Priority Queue (largest to smallest):");
-        // Remove all elements one by one (largest first)
         while (!maxHeapQueue.isEmpty()) {
             System.out.println("Removed: " + maxHeapQueue.poll());
         }
         
-        // ===== Additional PriorityQueue Example with Strings =====
         System.out.println("\n\n===== PriorityQueue with Strings (Alphabetical Order) =====\n");
         
         Queue<String> priorityQueueNames = new PriorityQueue<>();
@@ -161,7 +142,6 @@ public class main {
             System.out.println("Removed: " + priorityQueueNames.poll());
         }
         
-        // ===== Synchronized List Example =====
         System.out.println("\n\n===== Synchronized Collection Example =====\n");
         List<String> synchronizedList = Collections.synchronizedList(new LinkedList<>());
         synchronizedList.add("Element 1");

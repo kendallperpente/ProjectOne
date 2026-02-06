@@ -1,10 +1,4 @@
 import java.util.*;
-
-/*        Sorting a list according to natural ordering of elements
-        Reversing sort order
-        Sorting a list whose elements of a custom type
-        Sorting a list using a Comparator */
-
 public class main {
 
     public static void main(String[] args) {
@@ -60,7 +54,6 @@ public static void emplyee_order(){
             this.salary = salary;
         }
      
-        // getters and setters
         public String getName() {
             return name;
         }
